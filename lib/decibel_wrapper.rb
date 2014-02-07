@@ -1,5 +1,3 @@
 require "decibel_wrapper/version"
+require "decibel"
 
-module DecibelWrapper
-  # Your code goes here...
-end
