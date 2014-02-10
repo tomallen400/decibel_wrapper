@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = DecibelWrapper::VERSION
   spec.authors       = ["tomallen400"]
   spec.email         = ["tomallen4000@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "A simple wrapper for the Decibel API"
+  spec.summary       = "Creates objects from the Decibel API"
   spec.homepage      = ""
   spec.license       = "MIT"
 

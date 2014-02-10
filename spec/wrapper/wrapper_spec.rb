@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Decibel::Wrapper do
 	
-	let(:wrapper) { Decibel::Wrapper.new(:decibel_app_id => 'fb8f43a3', :decibel_app_key => 'b77c9a355af301c4d1aefe7273ba6fec')  }
+	let(:wrapper) { Decibel::Wrapper.new(:decibel_app_id => 'YOUR_DECIBEL_APP_ID', :decibel_app_key => 'YOUR_DECIBEL_APP_KEY')  }
 	let(:test_query) { "albums/?title=the%20fame%20monster&depth=Tracks;TrackAuthors" }
 	let(:album_query) { "album/?id=cd94ce57-533a-e311-be6d-ac220b82800d" }
 	

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Decibel::Album do
 
-	let(:wrapper) { Decibel::Wrapper.new(:decibel_app_id => 'fb8f43a3', :decibel_app_key => 'b77c9a355af301c4d1aefe7273ba6fec')  }
+	let(:wrapper) { Decibel::Wrapper.new(:decibel_app_id => 'YOUR_DECIBEL_APP_ID', :decibel_app_key => 'YOUR_DECIBEL_APP_KEY')  }
 	let(:decibal_album) { wrapper.album(:id => 'cd94ce57-533a-e311-be6d-ac220b82800d') }
 	let(:album) { Decibel::Album.new(:Id => 'cd94ce57-533a-e311-be6d-ac220b82800d', :Identifiers => [{:IdentifierType => "A type", :Value => "1234"}], :Genres => [{:Name => "House"}, {:Name => "Electro"}]) }
 	subject { album }
