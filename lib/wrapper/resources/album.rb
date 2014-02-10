@@ -11,6 +11,7 @@ class Decibel::Album
 	
 	def child_initializers
 		self.identifiers_initialize if self.Identifiers
+		self.genres_initialize if self.Genres
 	end
 	
 	def identifiers_initialize

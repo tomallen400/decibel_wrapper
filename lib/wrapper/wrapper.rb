@@ -37,38 +37,69 @@ class Decibel::Wrapper
   end
   
   def image(params)
-  	
+  	image_id = "0"
+  	image_id = params[:id] if params.is_a?(Hash) && params[:id]
+  	response = self.query("image/#{image_id}/#{Decibel::Wrapper.image_size(params)}")
+  end
+  
+  def self.image_size(params)
+  	image_size = "standard"
+  	image_size = "thumbnail" if params.is_a?(Hash) && params[:thumbnail]
+  	image_size = "full" if params.is_a?(Hash) && params[:full]
+  	image_size
   end
   
   def participant(params)
-  
+  	response = self.query(Decibel::Wrapper.create_query_string('participant/?', params))
+		Decibel::Participant.new(response) if !response.nil?
   end
   
   def participants(params)
-  
+  	response = self.query(Decibel::Wrapper.create_query_string('participants/?', params))
+		if !response.nil?
+			array = []
+			response.each do |a|
+				array << Decibel::Participant.new(response)
+			end
+			array
+		end
   end
   
   def recording(params)
-  
+  	response = self.query(Decibel::Wrapper.create_query_string('recording/?', params))
+		Decibel::Recording.new(response) if !response.nil?
   end
   
   def recordings(params)
-  
+  	response = self.query(Decibel::Wrapper.create_query_string('recordings/?', params))
+		if !response.nil?
+			array = []
+			response.each do |a|
+				array << Decibel::Recording.new(response)
+			end
+			array
+		end
   end
   
   def return_number
-  
+  	self.query(Decibel::Wrapper.create_query_string('return/number', nil))
   end
   
   def work(params)
-  
+  	response = self.query(Decibel::Wrapper.create_query_string('work/?', params))
+		Decibel::Work.new(response) if !response.nil?
   end
   
   def works(params)
-  
+  	response = self.query(Decibel::Wrapper.create_query_string('works/?', params))
+		if !response.nil?
+			array = []
+			response.each do |a|
+				array << Decibel::Work.new(response)
+			end
+			array
+		end
   end
-  
-  #private
   
   # Query String
   def self.create_query_string(start, params)
@@ -123,13 +154,13 @@ class Decibel::Wrapper
   
   def self.parse_response(response)
 		if response.is_a?(Net::HTTPOK)
-			json = JSON.parse(response.body)
+			json = JSON.parse(response.body) rescue {}
 			if json["ResultSet"]
 				json["ResultSet"]
 			elsif json["Result"]
 				json["Result"]
 			else
-				nil
+				response.body
 			end
   	end
   end
