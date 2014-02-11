@@ -2,17 +2,21 @@ require 'spec_helper'
 
 describe Decibel::Recording do
 
-	let(:wrapper) { Decibel::Wrapper.new(:decibel_app_id => 'YOUR_DECIBEL_APP_ID', :decibel_app_key => 'YOUR_DECIBEL_APP_KEY')  }
+	let(:wrapper) { $wrapper }
 	let(:decibal_recording) { wrapper.recording(:id => '5e9c115a-7e00-11e3-be7b-ac220b82800d') }
 	let(:recording) { Decibel::Recording.new(:Id => '5e9c115a-7e00-11e3-be7b-ac220b82800d', :Title => "Zephyr Song", :Genres => [{:Name => "House"}, {:Name => "Electro"}], :Duration => 232.0, :FeaturedArtists => [{:Id => "efcd42f6-7dff-11e3-be7b-ac220b82800d", :LiteralName => "Red Hot Chili Peppers"}], :Participations => [{:LiteralMainIdentities => "Chad Smith", :MainIdentities => [{:Id  => "f8d2a321-463a-e311-be6d-ac220b82800d", :LiteralName => "Chad Smith"}], :LiteralActivity => "Drums", :Activities => [{:Name => "Drums"}]}], :Authors => [{:LiteralMainIdentities => "John Frusciante", :MainIdentities => [{:Id => "03d85421-463a-e311-be6d-ac220b82800d", :LiteralName => "John Frusciante"}], :LiteralActivity => "Written-By", :Activities => [{:Name => "Written By"}]}]) }
 	let(:blank_recording) { Decibel::Recording.new(:Id => "") }
 	subject { recording }
 	
 	it { should respond_to(:Id) }
+	it { should respond_to(:AlbumSequence) }
 	it { should respond_to(:Title) }
 	it { should respond_to(:FeaturedArtistString) }
 	it { should respond_to(:Duration) }
 	it { should respond_to(:FeaturedArtists) }
+	it { should respond_to(:Genres) }
+	it { should respond_to(:Participations) }
+	it { should respond_to(:Authors) }
 	
 	it "should set FeaturedArtists to an array" do
 		recording.FeaturedArtists.should be_an_instance_of Array

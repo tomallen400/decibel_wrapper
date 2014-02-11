@@ -2,9 +2,13 @@ require 'spec_helper'
 
 describe Decibel::Wrapper do
 	
-	let(:wrapper) { Decibel::Wrapper.new(:decibel_app_id => 'YOUR_DECIBEL_APP_ID', :decibel_app_key => 'YOUR_DECIBEL_APP_KEY')  }
+	let(:wrapper) { $wrapper }
 	let(:test_query) { "albums/?title=the%20fame%20monster&depth=Tracks;TrackAuthors" }
 	let(:album_query) { "album/?id=cd94ce57-533a-e311-be6d-ac220b82800d" }
+	subject { wrapper }
+	
+	it { should respond_to(:decibel_app_id) }
+	it { should respond_to(:decibel_app_key) }
 	
 	# Album
 	describe "album" do

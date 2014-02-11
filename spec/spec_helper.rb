@@ -17,3 +17,7 @@ RSpec.configure do |config|
 end
 
 require 'decibel_wrapper'
+
+YOUR_DECIBEL_APP_ID = ""
+YOUR_DECIBEL_APP_KEY = ""
+$wrapper = Decibel::Wrapper.new(:decibel_app_id => YOUR_DECIBEL_APP_ID, :decibel_app_key => YOUR_DECIBEL_APP_KEY)

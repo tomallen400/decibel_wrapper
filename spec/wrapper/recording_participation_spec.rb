@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe Decibel::Participation do
 
-	let(:wrapper) { Decibel::Wrapper.new(:decibel_app_id => 'YOUR_DECIBEL_APP_ID', :decibel_app_key => 'YOUR_DECIBEL_APP_KEY')  }
-	#let(:decibal_participant) { wrapper.recording(:id => '5e9c115a-7e00-11e3-be7b-ac220b82800d') }
+	let(:wrapper) { $wrapper }
 	let(:participation) { Decibel::Participation.new(:LiteralMainIdentities => "Chad Smith", :MainIdentities => [{:Id => "f8d2a321-463a-e311-be6d-ac220b82800d", :LiteralName => "Chad Smith"}], :LiteralActivity => "Drums", :Activities => [{:Name => "Drums"}]) }
 	subject { participation }
 	

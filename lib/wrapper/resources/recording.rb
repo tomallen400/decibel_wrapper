@@ -1,6 +1,6 @@
 class Decibel::Recording
 	
-	attr_accessor :Id, :Title, :FeaturedArtistString, :Duration, :FeaturedArtists, :Genres, :Participations, :Authors
+	attr_accessor :Id, :AlbumSequence, :Title, :FeaturedArtistString, :Duration, :FeaturedArtists, :Genres, :Participations, :Authors
 	
 	def initialize args
 		args.each do |k, v|
