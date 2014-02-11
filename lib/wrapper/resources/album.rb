@@ -1,6 +1,6 @@
 class Decibel::Album
 	
-	attr_accessor :Title, :FeaturedArtistString, :IsUnofficial, :Identifiers, :Genres
+	attr_accessor :Title, :FeaturedArtistString, :IsUnofficial, :Identifiers, :Genres, :Tracks
 	
 	def initialize args
 		args.each do |k, v|
@@ -26,6 +26,14 @@ class Decibel::Album
 		array = []
 		self.Genres.each do |i|
 			array << Decibel::Genre.new(i)
+		end
+		self.Genres = array
+	end
+	
+	def tracks_initialize
+		array = []
+		self.Tracks.each do |i|
+			array << Decibel::Recording.new(i)
 		end
 		self.Genres = array
 	end

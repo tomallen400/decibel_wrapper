@@ -11,6 +11,8 @@ describe Decibel::Album do
 	it { should respond_to(:FeaturedArtistString) }
 	it { should respond_to(:IsUnofficial) }
 	it { should respond_to(:Identifiers) }
+	it { should respond_to(:Genres) }
+	it { should respond_to(:Tracks) }
 	
 	describe "identifiers_initialize" do
 		before { album.identifiers_initialize }
@@ -30,6 +32,10 @@ describe Decibel::Album do
 		it "should set genres to an array of Decibel::Genre s" do
 			album.Genres[0].should be_an_instance_of Decibel::Genre
 		end
+	end
+	
+	describe "tracks_initialize" do
+		
 	end
 
 end

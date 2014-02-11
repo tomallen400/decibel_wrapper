@@ -26,7 +26,7 @@ class Decibel::Wrapper
 		if !response.nil?
 			array = []
 			response.each do |a|
-				array << Decibel::Album.new(response)
+				array << Decibel::Album.new(a)
 			end
 			array
 		end
@@ -59,7 +59,7 @@ class Decibel::Wrapper
 		if !response.nil?
 			array = []
 			response.each do |a|
-				array << Decibel::Participant.new(response)
+				array << Decibel::Participant.new(a)
 			end
 			array
 		end
@@ -75,7 +75,7 @@ class Decibel::Wrapper
 		if !response.nil?
 			array = []
 			response.each do |a|
-				array << Decibel::Recording.new(response)
+				array << Decibel::Recording.new(a)
 			end
 			array
 		end
@@ -95,7 +95,7 @@ class Decibel::Wrapper
 		if !response.nil?
 			array = []
 			response.each do |a|
-				array << Decibel::Work.new(response)
+				array << Decibel::Work.new(a)
 			end
 			array
 		end
