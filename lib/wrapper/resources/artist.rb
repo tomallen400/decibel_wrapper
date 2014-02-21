@@ -1,6 +1,6 @@
-class Decibel::FeaturedArtist
+class Decibel::Artist
 	
-	attr_accessor :Id, :Name, :LiteralName
+	attr_accessor :LiteralName, :Id
 	
 	def initialize args
 		args.each do |k, v|
