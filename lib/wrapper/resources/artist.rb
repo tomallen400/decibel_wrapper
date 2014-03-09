@@ -1,6 +1,6 @@
 class Decibel::Artist
 	
-	attr_accessor :LiteralName, :Id, :Name
+	attr_accessor :LiteralName, :Id, :Name, :Probability
 	
 	def initialize args
 		args.each do |k, v|

@@ -1,6 +1,6 @@
 class Decibel::Album
 	
-	attr_accessor :Id, :Title, :FeaturedArtistString, :LiteralMainArtists, :FeaturedArtists, :IsUnofficial, :Identifiers, :Genres, :Tracks
+	attr_accessor :Id, :Title, :FeaturedArtistString, :LiteralMainArtists, :FeaturedArtists, :IsUnofficial, :Identifiers, :Genres, :Tracks, :MainArtists
 	
 	def initialize args
 		args.each do |k, v|
@@ -14,6 +14,7 @@ class Decibel::Album
 		self.featured_artists_initialize if self.FeaturedArtists
 		self.genres_initialize if self.Genres
 		self.tracks_initialize if self.Tracks
+		self.artists_initialize if self.MainArtists
 	end
 	
 	def identifiers_initialize
@@ -46,6 +47,14 @@ class Decibel::Album
 			array << Decibel::Recording.new(i)
 		end
 		self.Tracks = array
+	end
+	
+	def artists_initialize
+		array = []
+		self.MainArtists.each do |i|
+			array << Decibel::Artist.new(i)
+		end
+		self.MainArtists = array
 	end
 
 end
