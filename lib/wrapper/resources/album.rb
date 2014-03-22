@@ -1,6 +1,6 @@
 class Decibel::Album
 	
-	attr_accessor :Id, :Title, :FeaturedArtistString, :LiteralMainArtists, :FeaturedArtists, :IsUnofficial, :Identifiers, :Genres, :Tracks, :MainArtists
+	attr_accessor :Id, :Title, :FeaturedArtistString, :LiteralMainArtists, :FeaturedArtists, :IsUnofficial, :Identifiers, :Genres, :Tracks, :MainArtists, :OriginalReleaseDate, :ImageId, :ImageUrl, :ThumbnailUrl
 	
 	def initialize args
 		args.each do |k, v|
