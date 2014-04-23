@@ -1,6 +1,6 @@
 class Decibel::Recording
 	
-	attr_accessor :Id, :AlbumSequence, :Title, :Artists, :FeaturedArtistString, :Duration, :FeaturedArtists, :Genres, :Participations, :Authors
+	attr_accessor :Id, :AlbumSequence, :Title, :Duration, :MainArtistsLiteral, :Artists, :FeaturedArtistsLiteral, :FeaturedArtists, :Genres, :Identifiers, :Participations, :Works, :Identifiers
 	
 	def initialize args
 		args.each do |k, v|
@@ -13,14 +13,15 @@ class Decibel::Recording
 		self.featured_artists_initialize if self.FeaturedArtists
 		self.genres_initialize if self.Genres
 		self.participations_initialize if self.Participations
-		self.authors_initialize if self.Authors
 		self.artists_initialize if self.Artists
+		self.identifiers_initialize if self.Identifiers
+		self.works_initialize if self.Works
 	end
 	
 	def featured_artists_initialize
 		array = []
 		self.FeaturedArtists.each do |a|
-			array << Decibel::FeaturedArtist.new(a)
+			array << Decibel::Artist.new(a)
 		end
 		self.FeaturedArtists = array
 	end
@@ -41,20 +42,28 @@ class Decibel::Recording
 		self.Participations = array
 	end
 	
-	def authors_initialize
-		array = []
-		self.Authors.each do |a|
-			array << Decibel::Participation.new(a)
-		end
-		self.Authors = array
-	end
-	
 	def artists_initialize
 		array = []
 		self.Artists.each do |a|
 			array << Decibel::Artist.new(a)
 		end
 		self.Artists = array
+	end
+	
+	def identifiers_initialize
+		array = []
+		self.Identifiers.each do |i|
+			array << Decibel::Identifier.new(i)
+		end
+		self.Identifiers = array
+	end
+	
+	def works_initialize
+		array = []
+		self.Works.each do |a|
+			array << Decibel::Work.new(a)
+		end
+		self.Works = array
 	end
 	
 	# Needs looking at for refactoring

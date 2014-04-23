@@ -1,6 +1,6 @@
 class Decibel::Participant
 	
-	attr_accessor :Id, :Name, :StageName, :Identifiers, :Annotations, :Members, :DateOfBirth, :DateOfDeath
+	attr_accessor :Id, :Name, :StageName, :ArtistType, :Identifiers, :Annotations, :Members, :BirthDate, :DeathDate, :BirthPlace, :DeathPlace
 	
 	def initialize args
 		args.each do |k, v|

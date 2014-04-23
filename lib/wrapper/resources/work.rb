@@ -1,6 +1,6 @@
 class Decibel::Work
 	
-	attr_accessor :Id, :Title, :Participations, :Tracks
+	attr_accessor :Id, :Name, :Title, :WorkType, :Participations, :Tracks
 	
 	def initialize args
 		args.each do |k, v|

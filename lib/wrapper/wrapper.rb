@@ -32,6 +32,22 @@ class Decibel::Wrapper
 		end
   end
   
+  def artist(params)
+  	response = self.query(Decibel::Wrapper.create_query_string('artist/?', params))
+		Decibel::Artist.new(response) if !response.nil?
+  end
+  
+  def artists(params)
+  	response = self.query(Decibel::Wrapper.create_query_string('artists/?', params))
+		if !response.nil?
+			array = []
+			response.each do |a|
+				array << Decibel::Artist.new(a)
+			end
+			array
+		end
+  end
+  
   def disctags(params)
   
   end
